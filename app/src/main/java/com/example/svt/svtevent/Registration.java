@@ -6,6 +6,7 @@ import android.os.Bundle;
 public class Registration extends AppCompatActivity {
 
     // TODO: Create Registration Page Variables
+    // This Includes Save Button/ Spinner etc etc.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
