@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SVTEvent</string>
+    <string name="title_activity_roster">RosterActivity</string>
+</resources>
