@@ -25,4 +25,6 @@ public class RosterActivity extends AppCompatActivity{
                     }
                 });
     }
+
+    // TODO: Query From MEMBERS DB HELPER
 }

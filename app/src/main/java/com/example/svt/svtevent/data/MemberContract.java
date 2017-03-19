@@ -12,7 +12,7 @@ public final class MemberContract {
 
 
     /***
-     * URI AND CONTENT PROVIDER DETAILS
+     * TODO: URI AND CONTENT PROVIDER DETAILS
      */
 
 

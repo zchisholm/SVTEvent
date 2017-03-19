@@ -46,4 +46,6 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent(this, Events.class);
         startActivity(myIntent);
     }
+
+    // TODO: Need to Display Data from Events Database
 }

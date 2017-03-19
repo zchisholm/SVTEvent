@@ -17,6 +17,8 @@ import com.example.svt.svtevent.data.MemberContract.MemberEntry;
 
 public class MemberProvider extends ContentProvider {
 
+    // TODO: Finish URI Integration
+
     /** Tag for the log messages */
     public static final String LOG_TAG = MemberProvider.class.getSimpleName();
 

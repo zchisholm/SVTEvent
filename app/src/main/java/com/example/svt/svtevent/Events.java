@@ -10,4 +10,6 @@ public class Events extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
     }
+
+    // TODO: we need to add The Events Data for the main Activity Page
 }
