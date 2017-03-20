@@ -1,5 +1,6 @@
 package com.example.svt.svtevent.data;
 
+import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
@@ -15,7 +16,14 @@ public final class MemberContract {
      * TODO: URI AND CONTENT PROVIDER DETAILS
      */
 
+    // Content Authority: Name for the content provider similar to domain name
+    public static final String CONTENT_AUTHORITY = "com.example.svt.svtevent";
 
+    // using content authority to create base of all URI's which app will use to contact
+    public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+
+    // Possible Paths
+    public static final String PATH_MEMBER = "members";
 
     /***
      * Inner Class that defines constant values for member database table

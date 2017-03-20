@@ -18,6 +18,14 @@ import com.example.svt.svtevent.data.MemberContract.MemberEntry;
 public class MemberProvider extends ContentProvider {
 
     // TODO: Finish URI Integration
+    private static final int MEMBERS = 100;
+    private static final int MEMBER_ID = 101;
+
+    private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+    static{
+        sUriMatcher.addURI(MemberContract.CONTENT_AUTHORITY,MemberContract.PATH_MEMBERS,MEMBERS);
+        sUriMatcher.addURI(MemberContract.CONTENT_AUTHORITY,MemberContract.PATH_MEMBERS+ "/#",MEMBER_ID);
+    }
 
     /** Tag for the log messages */
     public static final String LOG_TAG = MemberProvider.class.getSimpleName();
@@ -38,7 +46,25 @@ public class MemberProvider extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
                         String sortOrder) {
-        return null;
+        SQLiteDatabase database = mDBHelper.getReadableDatabase();
+        Cursor cursor = null;
+        int match = sUriMatcher.match(uri);
+        switch(match){
+            case MEMBERS:
+                // TODO: Query for roster Table
+                cursor = database.query(MemberEntry.TABLE_NAME,projection,selection,selectionArgs,
+                        null,null,sortOrder);
+                break;
+            case MEMBER_ID:
+                selection = MemberEntry._ID + "=?";
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))  };
+                cursor = database.query(MemberEntry.TABLE_NAME, projection, selection, selectionArgs,
+                        null,null,sortOrder);
+                break;
+            default:
+                throw new IllegalArgumentException("Cannot query unknown URI " + uri);
+        }
+        return cursor;
     }
 
     /**

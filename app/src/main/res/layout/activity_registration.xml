@@ -57,8 +57,7 @@
         android:layout_alignBottom="@+id/regGender"
         android:layout_toEndOf="@+id/regGender"
         android:layout_toRightOf="@+id/regGender"
-        android:layout_below="@+id/regEmail"
-        android:background=" #fafafa"/>
+        android:layout_below="@+id/regEmail" />
 
 
 </RelativeLayout>
