@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    // Using OnClick In XML to Access New Activities
     public void goToRoster(View v){
        Intent myIntent = new Intent(this, RosterActivity.class);
         startActivity(myIntent);
