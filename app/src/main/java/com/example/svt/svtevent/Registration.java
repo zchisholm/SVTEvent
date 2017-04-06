@@ -1,6 +1,7 @@
 package com.example.svt.svtevent;
 
 import android.app.LoaderManager;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.Loader;
 import android.net.Uri;
@@ -87,10 +88,10 @@ public class Registration extends AppCompatActivity implements LoaderManager.Loa
         // Finding the Edit/Spinner Views
         //TODO: Make XML File For IDS FOR EDIT TEXT AND 2 Spinners
         mNameEditText = (EditText)findViewById(R.id.et_regName);
-        //mDegreeEditText = (EditText)findViewById(R.id.);
+        mDegreeEditText = (EditText)findViewById(R.id.et_regDegree);
         mEmailEditText = (EditText)findViewById(R.id.et_regEmail);
         mGenderSpinner = (Spinner)findViewById(R.id.regGenSpinner);
-        mDueSpinner = (Spinner)findViewById();
+        mDueSpinner = (Spinner)findViewById(R.id.regDueSpinner);
 
         // set OnTouchListeners on all inputs to identify if they have been touched or
         // have been modified without saving.
@@ -127,9 +128,9 @@ public class Registration extends AppCompatActivity implements LoaderManager.Loa
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
                 if (!TextUtils.isEmpty(selection)) {
-                    if (selection.equals("Male")) {
+                    if (selection.equals(getString(R.string.gender_male))) {
                         mGender = MemberEntry.GENDER_MALE;
-                    } else if (selection.equals("Female")) {
+                    } else if (selection.equals(getString(R.string.gender_female))) {
                         mGender = MemberEntry.GENDER_FEMALE;
                     } else {
                         mGender = MemberEntry.GENDER_UNKNOWN;
@@ -141,6 +142,30 @@ public class Registration extends AppCompatActivity implements LoaderManager.Loa
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 mGender = MemberEntry.GENDER_UNKNOWN;
+            }
+        });
+
+
+        // Set the integer mSelected to the constant values
+        mDueSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)) {
+                    if (selection.equals(getString(R.string.due_paid))) {
+                        mDue = MemberEntry.DUE_PAID;
+                    } else if (selection.equals(getString(R.string.due_notpaid))) {
+                        mDue = MemberEntry.DUE_NOTPAID;
+                    } else {
+                        mDue = MemberEntry.DUE_UNKNOWN;
+                    }
+                }
+            }
+
+            // Because AdapterView is an abstract class, onNothingSelected must be defined
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                mDue = MemberEntry.DUE_UNKNOWN;
             }
         });
     }
@@ -155,9 +180,17 @@ public class Registration extends AppCompatActivity implements LoaderManager.Loa
 
         if(mCurrentMemberUri == null &&
                 TextUtils.isEmpty(nameString) && TextUtils.isEmpty(degreeString) &&
-                TextUtils.isEmpty(emailString) && mGender == MemberEntry.GENDER_UNKNOWN);
+                TextUtils.isEmpty(emailString) && mGender == MemberEntry.GENDER_UNKNOWN && mDue == MemberEntry.DUE_UNKNOWN) ;
+        // No Fields are modified so we just return early if these fields are all empty
         return;
     }
+
+    // Creating Content Value objects for Columns
+    // TODO: Fix Issue with Content Values unable to access put method
+        ContentValues values = new ContentValues();
+        values.put(MemberEntry.COLUMN_MEMBER_NAME, nameString);
+        values.put(MemberEntry.COLUMN_MEMBER_DEGREE, degreeString);
+        values.put(MemberEntry.COLUMN_MEMBER_GENDER, mGender);
 
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -197,7 +230,6 @@ public class Registration extends AppCompatActivity implements LoaderManager.Loa
 
     }
 
-    //TODO: Make The Registration Page
 
     // TODO: Methods to Link Registration Page Information To Roster Activity
 }
