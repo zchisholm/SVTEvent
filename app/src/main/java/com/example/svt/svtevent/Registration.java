@@ -86,11 +86,11 @@ public class Registration extends AppCompatActivity implements LoaderManager.Loa
 
         // Finding the Edit/Spinner Views
         //TODO: Make XML File For IDS FOR EDIT TEXT AND 2 Spinners
-        mNameEditText = (EditText)findViewById();
-        mDegreeEditText = (EditText)findViewById();
-        mNameEditText = (EditText)findViewById();
-        mNameEditText = (Spinner)findViewById();
-        mNameEditText = (Spinner)findViewById();
+        mNameEditText = (EditText)findViewById(R.id.et_regName);
+        //mDegreeEditText = (EditText)findViewById(R.id.);
+        mEmailEditText = (EditText)findViewById(R.id.et_regEmail);
+        mGenderSpinner = (Spinner)findViewById(R.id.regGenSpinner);
+        mDueSpinner = (Spinner)findViewById();
 
         // set OnTouchListeners on all inputs to identify if they have been touched or
         // have been modified without saving.

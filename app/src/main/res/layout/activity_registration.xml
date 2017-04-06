@@ -23,7 +23,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
     <TextView
-        android:id="@+id/regEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/regName"
@@ -51,7 +50,7 @@
         android:textSize="35sp"/>
 
     <Spinner
-        android:id="@+id/regSpinner"
+        android:id="@+id/regGenSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/regGender"
