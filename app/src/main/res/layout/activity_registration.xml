@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="#ffff"
     tools:context="com.example.svt.svtevent.Registration">
 
     <TextView
@@ -13,30 +13,39 @@
         android:layout_height="wrap_content"
         android:layout_weight=".5"
         android:text="Name:"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#E65100"
         android:textSize="35sp" />
     <EditText
         android:id="@+id/et_regName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/regName"
+        android:hint="Name"
+        android:textColorHint="#000000"
+        android:inputType="textCapWords"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
     <TextView
+        android:id="@+id/regEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/regName"
         android:text="Email:"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#E65100"
         android:textSize="35sp"/>
 
     <EditText
+        android:id="@+id/et_regEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/regEmail"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/regName"
-        android:id="@+id/et_regEmail" />
+        android:hint="Email"
+        android:textColorHint="#000000"
+        android:inputType="textCapWords"
+        android:backgroundTint="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/regGender"
@@ -46,7 +55,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/et_regEmail"
         android:text="Gender:"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#E65100"
         android:textSize="35sp"/>
 
     <Spinner
@@ -56,7 +65,51 @@
         android:layout_alignBottom="@+id/regGender"
         android:layout_toEndOf="@+id/regGender"
         android:layout_toRightOf="@+id/regGender"
-        android:layout_below="@+id/regEmail" />
+        android:layout_below="@+id/et_regEmail" />
 
+    <TextView
+        android:id="@+id/regDegree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regGender"
+        android:layout_alignParentLeft="true"
+        android:text="Degree:"
+        android:textColor="#E65100"
+        android:textSize="35sp"/>
+
+    <EditText
+        android:id="@+id/et_regDegree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/regGenSpinner"
+        android:hint="Major"
+        android:textColorHint="#000000"
+        android:inputType="textCapWords"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_toRightOf="@+id/regGender"
+        android:layout_toEndOf="@+id/regGender" />
+
+
+
+    <TextView
+        android:id="@+id/regDuePayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/et_regDegree"
+        android:text="Due:"
+        android:textColor="#E65100"
+        android:textSize="35sp"/>
+
+    <Spinner
+        android:id="@+id/regDueSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/regDuePayment"
+        android:layout_toEndOf="@+id/regDuePayment"
+        android:layout_toRightOf="@+id/regDuePayment"
+        android:layout_below="@+id/et_regDegree" />
 
 </RelativeLayout>

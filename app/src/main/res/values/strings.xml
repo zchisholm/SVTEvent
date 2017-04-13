@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">SVTEvent</string>
     <string name="title_activity_roster">RosterActivity</string>
+
+
+    <!-- Label for dropdown menu option if the Person Gender -->
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_unknown">Unknown</string>
+
+    <!-- Label for dropdown menu option if the Person Payment-->
+    <string name="due_paid">Paid</string>
+    <string name="due_notpaid">NotPaid</string>
+    <string name="due_unknown">Unknown</string>
 </resources>
