@@ -180,7 +180,7 @@ public class Registration extends AppCompatActivity implements LoaderManager.Loa
 
         if(mCurrentMemberUri == null &&
                 TextUtils.isEmpty(nameString) && TextUtils.isEmpty(degreeString) &&
-                TextUtils.isEmpty(emailString) && mGender == MemberEntry.GENDER_UNKNOWN && mDue == MemberEntry.DUE_UNKNOWN) ;
+                TextUtils.isEmpty(emailString) && mGender == MemberEntry.GENDER_UNKNOWN && mDue == MemberEntry.DUE_UNKNOWN){
         // No Fields are modified so we just return early if these fields are all empty
         return;
     }
